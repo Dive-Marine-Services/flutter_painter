@@ -237,7 +237,7 @@ class EditTextWidgetState extends State<EditTextWidget>
 
     return GestureDetector(
       // If the border is tapped, un-focus the text field
-      // onTap: () => onEditingComplete(),
+      onTap: () => onEditingComplete(),
       child: Container(
         color: Colors.black38,
         child: Padding(
