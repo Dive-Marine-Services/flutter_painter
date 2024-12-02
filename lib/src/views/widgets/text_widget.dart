@@ -176,7 +176,7 @@ class EditTextWidgetState extends State<EditTextWidget>
   /// The current bottom view insets (the keyboard size on mobile).
   ///
   /// This is used to detect when the keyboard starts closing.
-  double bottomViewInsets = 0;
+  // double bottomViewInsets = 0;
 
   /// Getter for [TextSettings] from `widget.controller.value` to make code more readable.
   TextSettings get settings => widget.controller.value.settings.text;
@@ -273,21 +273,21 @@ class EditTextWidgetState extends State<EditTextWidget>
   ///
   /// Used to check bottom insets and lose focus of the focus node if the
   /// mobile keyboard starts closing.
-  @override
-  void didChangeMetrics() {
-    super.didChangeMetrics();
-    final value = WidgetsBinding.instance?.window.viewInsets.bottom;
+  // @override
+  // void didChangeMetrics() {
+  //   super.didChangeMetrics();
+  //   final value = WidgetsBinding.instance?.window.viewInsets.bottom;
 
-    // If the previous value of bottom view insets is larger than the current value,
-    // the keyboard is closing, so lose focus from the focus node
-    if ((value ?? bottomViewInsets) < bottomViewInsets &&
-        textFieldNode.hasFocus) {
-      textFieldNode.unfocus();
-    }
+  //   // If the previous value of bottom view insets is larger than the current value,
+  //   // the keyboard is closing, so lose focus from the focus node
+  //   if ((value ?? bottomViewInsets) < bottomViewInsets &&
+  //       textFieldNode.hasFocus) {
+  //     textFieldNode.unfocus();
+  //   }
 
-    // Update the bottom view insets for next check
-    bottomViewInsets = value ?? 0;
-  }
+  //   // Update the bottom view insets for next check
+  //   bottomViewInsets = value ?? 0;
+  // }
 
   /// Listener to focus events for [textFieldNode]
   void focusListener() {
