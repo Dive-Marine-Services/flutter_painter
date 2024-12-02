@@ -41,4 +41,7 @@ enum FreeStyleMode {
 
   /// Free-style painting is enabled in erasing mode; used to erase drawings.
   erase,
+
+  /// Free-style painting is enabled in text mode; used to add text.
+  text,
 }
