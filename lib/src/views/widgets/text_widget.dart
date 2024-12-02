@@ -292,9 +292,9 @@ class EditTextWidgetState extends State<EditTextWidget>
   /// Listener to focus events for [textFieldNode]
   void focusListener() {
     if (!mounted) return;
-    if (!textFieldNode.hasFocus) {
-      onEditingComplete();
-    }
+    // if (!textFieldNode.hasFocus) {
+    //   onEditingComplete();
+    // }
   }
 
   /// Saves the changes to the [widget.drawable] text and closes the editor.
