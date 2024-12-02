@@ -237,12 +237,12 @@ class EditTextWidgetState extends State<EditTextWidget>
 
     return GestureDetector(
       // If the border is tapped, un-focus the text field
-      onTap: () => textFieldNode.unfocus(),
+      // onTap: () => textFieldNode.unfocus(),
       child: Container(
         color: Colors.black38,
         child: Padding(
           padding: EdgeInsets.only(
-              bottom: (0 - (screenHeight - height - y))
+              bottom: (keyboardHeight - (screenHeight - height - y))
                   .clamp(0, screenHeight)),
           child: Center(
             child: TextField(
