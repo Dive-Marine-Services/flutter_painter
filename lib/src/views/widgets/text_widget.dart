@@ -114,21 +114,6 @@ class _TextWidgetState extends State<_TextWidget> {
     });
   }
 
-    void setTextFontSize(double size) {
-    // Set state is just to update the current UI, the [FlutterPainter] UI updates without it
-    setState(() {
-      settings = settings.copyWith(
-          textStyle:
-              settings.textStyle.copyWith(fontSize: size));
-      
-    });
-  }
-
-  void setTextColor(double hue) {
-    settings = settings
-        .copyWith(color: HSVColor.fromAHSV(1, hue, 1, 1).toColor());
-  }
-
   /// Opens an editor to edit the text of [drawable].
   Future<void> openTextEditor(TextDrawable drawable,
       [bool isNew = false]) async {
@@ -139,53 +124,10 @@ class _TextWidgetState extends State<_TextWidget> {
             reverseTransitionDuration: const Duration(milliseconds: 300),
             opaque: false,
             pageBuilder: (context, animation, secondaryAnimation) =>
-                Column(
-                  mainAxisSize: MainAxisSize.min.,
-                  children: [
-                    EditTextWidget(
-                      controller: PainterController.of(context),
-                      drawable: drawable,
-                      isNew: isNew,
-                    ),
-                    const Divider(),
-                              const Text("Text settings"),
-                              // Control text font size
-                              Row(
-                                children: [
-                                  const Expanded(
-                                      flex: 1, child: Text("Font Size")),
-                                  Expanded(
-                                    flex: 3,
-                                    child: Slider.adaptive(
-                                        min: 8,
-                                        max: 96,
-                                        value:
-                                            settings.fontSize ?? 14,
-                                        onChanged: setTextFontSize),
-                                  ),
-                                ],
-                              ),
-
-                              // Control text color hue
-                              Row(
-                                children: [
-                                  const Expanded(flex: 1, child: Text("Color")),
-                                  Expanded(
-                                    flex: 3,
-                                    child: Slider.adaptive(
-                                        min: 0,
-                                        max: 359.99,
-                                        value: HSVColor.fromColor(
-                                                settings.color ??
-                                                    Colors.red)
-                                            .hue,
-                                        activeColor: settings.color,
-                                        onChanged: setTextColor),
-                                  ),
-                                ],
-                              ),
-                            
-                  ],
+                EditTextWidget(
+                  controller: PainterController.of(context),
+                  drawable: drawable,
+                  isNew: isNew,
                 ),
             transitionsBuilder:
                 (context, animation, secondaryAnimation, child) =>
